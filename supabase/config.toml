@@ -1,0 +1,17 @@
+[functions.create-checkout]
+verify_jwt = true
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.generate-access-link]
+verify_jwt = true
+
+[functions.verify-access]
+verify_jwt = false
+
+[functions.request-access-link]
+verify_jwt = true
+
+[functions.serve-book]
+verify_jwt = true

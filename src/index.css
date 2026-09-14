@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink-900 px-6 py-3 text-sm font-medium tracking-editorial text-ink-50 transition-all duration-300 hover:bg-ink-800 hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-300 px-6 py-3 text-sm font-medium tracking-editorial text-ink-800 transition-all duration-300 hover:border-ink-900 hover:text-ink-900 active:scale-[0.98] disabled:opacity-50;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-sm font-medium tracking-editorial text-white transition-all duration-300 hover:bg-gold-600 hover:shadow-lg active:scale-[0.98] disabled:opacity-50;
+  }
+  .input-field {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder-ink-400 transition-all duration-200 focus:border-ink-900 focus:outline-none focus:ring-2 focus:ring-ink-900/10;
+  }
+  .label-field {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-editorial text-ink-600;
+  }
+  .section-heading {
+    @apply font-serif text-3xl font-light text-ink-900 sm:text-4xl;
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-wide-lg text-gold-600;
+  }
+  .prose-editorial {
+    @apply font-serif text-lg leading-relaxed text-ink-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .skeleton {
+    @apply bg-gradient-to-r from-ink-100 via-ink-200 to-ink-100 bg-[length:200%_100%] animate-shimmer;
+  }
+}
+
+::selection {
+  @apply bg-gold-200 text-ink-900;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ink-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ink-400;
+}
+
+@media print {
+  body { display: none !important; }
+  html::before {
+    content: "Printing is not allowed";
+    display: block;
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+}
