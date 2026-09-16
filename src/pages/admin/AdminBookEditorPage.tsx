@@ -259,8 +259,16 @@ export function AdminBookEditorPage() {
       };
 
       if (isEdit && id) {
-        const { error } = await supabase.from('books').update(payload).eq('id', id);
+        const { data, error } = await supabase
+          .from('books')
+          .update(payload)
+          .eq('id', id)
+          .select('id')
+          .maybeSingle();
         if (error) throw error;
+        if (!data) {
+          throw new Error('Book was not updated. Confirm that your account has the admin role in Supabase.');
+        }
         showToast('success', 'Book updated.');
       } else {
         const { error } = await supabase.from('books').insert(payload);
