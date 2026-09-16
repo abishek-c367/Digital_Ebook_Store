@@ -1,0 +1,17 @@
+[functions.verify-razorpay-payment]
+verify_jwt = true
+
+[functions.razorpay-webhook]
+verify_jwt = false
+
+[functions.verify-access]
+verify_jwt = false
+
+[functions.request-access-link]
+verify_jwt = true
+
+[functions.serve-book]
+verify_jwt = true
+
+[functions.admin-users]
+verify_jwt = true
